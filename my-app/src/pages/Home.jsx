@@ -1,4 +1,5 @@
 import React from "react";
+import { movies } from "../data/data"; // 1. นำเข้าข้อมูล movies มาใช้งาน
 import MovieCard from "../components/MovieCard";
 import MovieGallery from "../components/MovieGallery";
 
@@ -10,11 +11,13 @@ function Home() {
 
       <h2 className="mt-8 text-2xl font-bold text-slate-800 mb-4">หนังแนะนำ</h2>
 
+      {/* 2. เปลี่ยนมาใช้ movies.slice แทน MovieCard.slice */}
       <div className="mx-auto mt-8 max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {MovieCard.slice(0, 3).map((m) => (
-          <MovieCard key={m.id} movie={m.title} />
+        {movies.slice(0, 3).map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
+
       <h2 className="mt-8 text-2xl font-bold text-slate-800 mb-4">ดูหนังเพิ่มเติม</h2>
       <div className="mx-auto mt-8 max-w-md">
         <MovieGallery />
